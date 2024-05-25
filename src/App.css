@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
+
+
+:root{
+  --offcanvas-width:270px;
+  --topNavbarHeight:56px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sidebar-nav{
+  width: var(--offcanvas-width) !important;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sidebar-link{
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.sidebar-link .right-icon{
+display: inline-flex;
+transition: all ease 0.25s;
 }
 
-.App-link {
-  color: #61dafb;
+.sidebar-link[aria-expanded='true'] .right-icon{
+  transform: rotate(180deg);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.add-color::before{
+  content: 'Add';
+}
+
+
+
+@media (min-width:992px) {
+  body{
+    overflow: auto !important;
   }
-  to {
-    transform: rotate(360deg);
+
+  .offcanvas-backdrop::before{
+    display: none !important;
+    
   }
+  main{
+    margin-left: var(--offcanvas-width);
+  }
+
+  .sidebar-nav{
+    transform: none !important;
+    visibility: visible !important;
+    top: var(--topNavbarHeight)!important;
+    height: calc(100% - var(--topNavbarHeight))!important;
+    
+  }
+  
+  .add-color::before{
+    content: 'Add New Student';
+  
+  }
+
 }
