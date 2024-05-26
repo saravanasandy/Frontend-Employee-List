@@ -100,7 +100,7 @@ const MainPage = () => {
 
                         <button
                           type="button"
-                          class="btn btn-primary add-color ms-3"
+                          className="btn btn-primary add-color ms-3"
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
                         ></button>

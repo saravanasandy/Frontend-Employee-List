@@ -19,7 +19,7 @@ const StudentList = ({ studentDetails, studentDelete }) => {
             <div className="card-header">Students details</div>
             <div className="card-body">
               <div className="table-responsive">
-                <table class="table">
+                <table className="table">
                   <thead>
                     <tr>
                       <th scope="col">S.NO</th>
@@ -48,7 +48,7 @@ const StudentList = ({ studentDetails, studentDelete }) => {
                                 data-bs-toggle="modal"
                                 data-bs-target="#exampleModal2"
                               >
-                                <i class="bi bi-pencil-square"></i>
+                                <i className="bi bi-pencil-square"></i>
                               </span>
                               <EditStudent id={value._id} />
                               <span
@@ -56,14 +56,14 @@ const StudentList = ({ studentDetails, studentDelete }) => {
                                 data-bs-toggle="modal"
                                 data-bs-target="#exampleModal3"
                               >
-                                <i class="bi bi-trash"></i>
+                                <i className="bi bi-trash"></i>
                               </span>
                               {/* <!-- Modal --> */}
-                              <div class="modal fade" id="exampleModal3">
-                                <div class="modal-dialog modal-md mt-5">
-                                  <div class="modal-content p-4">
+                              <div className="modal fade" id="exampleModal3">
+                                <div className="modal-dialog modal-md mt-5">
+                                  <div className="modal-content p-4">
                                     <div className="container-fluid">
-                                      <div class="row">
+                                      <div className="row">
                                         <div className="col-lg-12">
                                           <div className="mb-3 form-control">
                                             <h4>
@@ -75,7 +75,7 @@ const StudentList = ({ studentDetails, studentDelete }) => {
                                           <div className="mb-3 form-control d-flex gap-4">
                                             <button
                                               type="submit"
-                                              class="btn btn-success form-control"
+                                              className="btn btn-success form-control"
                                               value="submit"
                                               onClick={() =>
                                                 studentDelete(value._id)
@@ -86,7 +86,7 @@ const StudentList = ({ studentDetails, studentDelete }) => {
 
                                             <button
                                               type="button"
-                                              class="btn btn-danger form-control"
+                                              className="btn btn-danger form-control"
                                               data-bs-dismiss="modal"
                                             >
                                               No

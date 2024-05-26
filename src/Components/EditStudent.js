@@ -56,18 +56,18 @@ const EditStudent = ({ id }) => {
   return (
     <>
       {/* <!-- Modal --> */}
-      <div class="modal fade" id="exampleModal2">
-        <div class="modal-dialog modal-md mt-5">
-          <div class="modal-content p-4">
+      <div className="modal fade" id="exampleModal2">
+        <div className="modal-dialog modal-md mt-5">
+          <div className="modal-content p-4">
             <div className="container-fluid">
-              <div class="row">
+              <div className="row">
                 <div className="col-lg-12">
                   <form onSubmit={formik.handleSubmit}>
                     <h4 className="text-center">Edit Data</h4>
                     <div className="mb-3">
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="name"
                         name="name"
                         placeholder="Name"
@@ -79,7 +79,7 @@ const EditStudent = ({ id }) => {
                     <div className="mb-3">
                       <input
                         type="email"
-                        class="form-control"
+                        className="form-control"
                         id="email"
                         name="email"
                         placeholder="Email"
@@ -91,7 +91,7 @@ const EditStudent = ({ id }) => {
                     <div className="mb-3">
                       <input
                         type="phone"
-                        class="form-control"
+                        className="form-control"
                         id="phone"
                         name="phone"
                         placeholder="phone"
@@ -103,7 +103,7 @@ const EditStudent = ({ id }) => {
                     <div className="mb-3">
                       <input
                         type="phone"
-                        class="form-control"
+                        className="form-control"
                         id="enroll"
                         name="enroll"
                         placeholder="Enroll"
@@ -115,7 +115,7 @@ const EditStudent = ({ id }) => {
                     <div className="mb-3">
                       <input
                         type="Date"
-                        class="form-control"
+                        className="form-control"
                         id="date"
                         name="admissionDate"
                         placeholder="Date of Admission"
@@ -127,7 +127,7 @@ const EditStudent = ({ id }) => {
                     <div className="mb-3">
                       <button
                         type="submit"
-                        class="btn btn-success form-control"
+                        className="btn btn-success form-control"
                         value="submit"
                         disabled={!formik.isValid}
                       >
@@ -137,7 +137,7 @@ const EditStudent = ({ id }) => {
                     <div className="mb-3">
                       <button
                         type="button"
-                        class="btn btn-danger form-control"
+                        className="btn btn-danger form-control"
                         data-bs-dismiss="modal"
                       >
                         cancel
