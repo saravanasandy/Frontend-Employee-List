@@ -75,12 +75,12 @@ const MainPage = () => {
 
   return (
     <>
+      <h1>loading...</h1>
       {loading ? (
-        <div> Loading ...</div>
+        <div className="loader-parent">
+          <span className="loader"> </span>
+        </div>
       ) : (
-        // <div className="loader-parent">
-        //   <span className="loader"> </span>
-        // </div>
         <div>
           <main className="mt-5 pt-3 ps-3">
             <div className="container-fluid">
