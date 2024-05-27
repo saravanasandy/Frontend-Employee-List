@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import EditStudent from "./EditStudent";
 import { useParams } from "react-router-dom";
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalTitle,
+} from "react-bootstrap";
 
 const StudentList = ({ studentDetails, studentDelete }) => {
+  const [show, setShow] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
+
+  const handleClose = () => {
+    setShow(!show);
+  };
+  const handleEditClose = () => {
+    setShowEdit(!showEdit);
+  };
   const params = useParams();
 
   // const EditId = studentDetails.find((find) => {
@@ -42,7 +59,52 @@ const StudentList = ({ studentDetails, studentDelete }) => {
                             <td>{value.phone}</td>
                             <td>{value.enroll}</td>
                             <td>{value.admissionDate.slice(0, 10)}</td>
+                            <td className="d-flex">
+                              <span
+                                className="pe-3 text-primary"
+                                onClick={handleEditClose}
+                              >
+                                <i className="bi bi-pencil-square"></i>
+                              </span>
+                              <span
+                                className="pe-3 text-danger"
+                                onClick={handleClose}
+                              >
+                                <i className="bi bi-trash"></i>
+                              </span>
+                            </td>
+                            <EditStudent
+                              id={value._id}
+                              handleEditClose={handleEditClose}
+                              showEdit={showEdit}
+                            />
                             <td>
+                              <Modal show={show} onHide={handleClose}>
+                                <ModalHeader closeButton>
+                                  {/* <ModalTitle>Confirmation</ModalTitle> */}
+                                </ModalHeader>
+                                <ModalBody>
+                                  Are you Sure to delete this Student ?
+                                </ModalBody>
+                                <ModalFooter>
+                                  <Button
+                                    variant="danger"
+                                    onClick={handleClose}
+                                  >
+                                    No
+                                  </Button>
+                                  <Button
+                                    variant="success"
+                                    onClick={() =>
+                                      studentDelete(value._id, handleClose)
+                                    }
+                                  >
+                                    Yes
+                                  </Button>
+                                </ModalFooter>
+                              </Modal>
+                            </td>
+                            {/* <td>
                               <span
                                 className="pe-3 text-primary"
                                 data-bs-toggle="modal"
@@ -51,14 +113,14 @@ const StudentList = ({ studentDetails, studentDelete }) => {
                                 <i className="bi bi-pencil-square"></i>
                               </span>
                               <EditStudent id={value._id} />
-                              <span
+                               <span
                                 className="pe-3 text-danger"
                                 data-bs-toggle="modal"
                                 data-bs-target="#exampleModal3"
                               >
                                 <i className="bi bi-trash"></i>
                               </span>
-                              {/* <!-- Modal --> */}
+                              <!-- Modal -->
                               <div className="modal fade" id="exampleModal3">
                                 <div className="modal-dialog modal-md mt-5">
                                   <div className="modal-content p-4">
@@ -97,8 +159,8 @@ const StudentList = ({ studentDetails, studentDelete }) => {
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                            </td>
+                              </div> 
+                            </td> */}
                           </tr>
                         );
                       })}

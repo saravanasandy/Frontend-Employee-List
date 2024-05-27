@@ -33,15 +33,17 @@ const MainPage = () => {
 
   let studentDetails = users.data;
 
-  let studentDelete = async (id) => {
+  let studentDelete = async (id, handleClose) => {
     try {
+      console.log(id);
       const response = await axios.delete(
         `https://backend-employee-list.onrender.com/api/students/${id}`
       );
       // setUsers(users.filter((product) => product._id !== id));
       console.log(response.data);
       loadData();
-      window.location.reload();
+      handleClose();
+      // window.location.reload();
     } catch (error) {
       console.log(error);
     }

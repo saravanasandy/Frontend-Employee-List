@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import axios from "axios";
+import { Button, Modal, ModalHeader, ModalBody } from "react-bootstrap";
 
-const EditStudent = ({ id }) => {
+const EditStudent = ({ id, handleEditClose, showEdit }) => {
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -55,8 +56,116 @@ const EditStudent = ({ id }) => {
   };
   return (
     <>
+      <Modal show={showEdit} onHide={handleEditClose}>
+        <ModalHeader closeButton>
+          {/* <ModalTitle>Confirmation</ModalTitle> */}
+        </ModalHeader>
+        <ModalBody>
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-lg-12">
+                <form onSubmit={formik.handleSubmit}>
+                  <h4 className="text-center">Edit Data</h4>
+                  <div className="mb-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="name"
+                      name="name"
+                      placeholder="Name"
+                      value={formik.values.name}
+                      onChange={formik.handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="email"
+                      name="email"
+                      placeholder="Email"
+                      value={formik.values.email}
+                      onChange={formik.handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="phone"
+                      className="form-control"
+                      id="phone"
+                      name="phone"
+                      placeholder="phone"
+                      value={formik.values.phone}
+                      onChange={formik.handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="phone"
+                      className="form-control"
+                      id="enroll"
+                      name="enroll"
+                      placeholder="Enroll"
+                      value={formik.values.enroll}
+                      onChange={formik.handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="Date"
+                      className="form-control"
+                      id="date"
+                      name="admissionDate"
+                      placeholder="Date of Admission"
+                      value={formik.values.admissionDate}
+                      onChange={formik.handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <Button
+                      type="submit"
+                      className="btn btn-success form-control"
+                      value="submit"
+                      disabled={!formik.isValid}
+                      onClick={handleEditClose}
+                    >
+                      Submit
+                    </Button>
+                  </div>
+                  <div className="mb-3">
+                    <Button
+                      type="button"
+                      className="btn btn-danger form-control"
+                      data-bs-dismiss="modal"
+                      onClick={handleEditClose}
+                    >
+                      cancel
+                    </Button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </ModalBody>
+        {/* <ModalFooter>
+          <Button variant="danger" onClick={handleClose}>
+            No
+          </Button>
+          <Button
+            variant="success"
+            onClick={() => studentDelete(value._id, handleClose)}
+          >
+            Yes
+          </Button>
+        </ModalFooter> */}
+      </Modal>
       {/* <!-- Modal --> */}
-      <div className="modal fade" id="exampleModal2">
+      {/* <div className="modal fade" id="exampleModal2">
         <div className="modal-dialog modal-md mt-5">
           <div className="modal-content p-4">
             <div className="container-fluid">
@@ -149,7 +258,7 @@ const EditStudent = ({ id }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
