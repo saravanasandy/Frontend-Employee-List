@@ -1,4 +1,4 @@
-@keyframes spinner {
+/* @keyframes spinner {
     to {
       transform: rotate(360deg);
     }
@@ -12,7 +12,7 @@
     margin: 0 auto;
     border-top-color: var(--primary-500);
     animation: spinner 0.3s linear infinite;
-  }
+  } */
 
 
   .loader {

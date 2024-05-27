@@ -7,14 +7,15 @@ const url = "https://backend-employee-list.onrender.com/api/students/";
 
 const MainPage = () => {
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     loadData();
   }, []);
 
   let loadData = async () => {
-    setLoading(true);
+    // setLoading(true);
+    console.log(loading);
     let users = await axios.get(
       "https://backend-employee-list.onrender.com/api/students/",
       {
@@ -75,10 +76,11 @@ const MainPage = () => {
   return (
     <>
       {loading ? (
-        <div className="loader-parent">
-          <span className="loader"></span>
-        </div>
+        <div> Loading ...</div>
       ) : (
+        // <div className="loader-parent">
+        //   <span className="loader"> </span>
+        // </div>
         <div>
           <main className="mt-5 pt-3 ps-3">
             <div className="container-fluid">
